@@ -6,7 +6,7 @@ export const DungeonMasterContainer = styled.section`
         font-size: 2rem;
         margin-bottom: 3rem;
         color: ${props => props.theme.textColorDefault};
-        border-bottom: 1px solid ${props => props.theme.dungeonsMasterColor};
+        border-bottom: 2px solid ${props => props.theme.dungeonsMasterColor};
         padding-bottom: 0.25rem;
         text-shadow: 0px 2px 5px ${props => props.theme.dungeonsMasterColor};
     }
@@ -14,4 +14,5 @@ export const DungeonMasterContainer = styled.section`
 
 export const DMList = styled.div`
     display: flex;
+    flex-wrap: wrap;
 `

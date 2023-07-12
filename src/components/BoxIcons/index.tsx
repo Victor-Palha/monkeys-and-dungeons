@@ -5,10 +5,11 @@ interface BoxIconsProps{
     icon: ReactNode;
     text: string;
     color: "player" | "dm";
+    path?: string;
 }
-export function BoxIcons({icon, text, color}: BoxIconsProps){
+export function BoxIcons({icon, text, color, path = "#"}: BoxIconsProps){
     return (
-        <BoxIconsContainer colorVariant={color}>
+        <BoxIconsContainer colorVariant={color} to={path}>
             {icon}
             <p>{text}</p>
         </BoxIconsContainer>

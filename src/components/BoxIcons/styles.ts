@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 interface BoxIconsContainerProps {
     colorVariant: "player" | "dm"
 }
-export const BoxIconsContainer = styled.div<BoxIconsContainerProps>`
+export const BoxIconsContainer = styled(Link)<BoxIconsContainerProps>`
+    text-decoration: none;
     color: ${props => props.theme.textColorDefault};
     background-color: ${props => props.theme.boxColor};
     display: flex;

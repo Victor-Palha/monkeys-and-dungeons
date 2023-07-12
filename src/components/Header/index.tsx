@@ -5,7 +5,7 @@ import {FiArrowUpRight} from 'react-icons/fi'
 export function Header(){
     return (
         <HeaderContainer>
-            <HeaderLogo>
+            <HeaderLogo to="/">
                 <FaDiceD20 size={69}/>
                 <h1>M&D</h1>
             </HeaderLogo>

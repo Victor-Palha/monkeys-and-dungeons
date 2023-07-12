@@ -7,8 +7,8 @@ export function Players(){
         <PlayersContainer>
             <h1>Players</h1>
             <PlayersList>
-                <BoxIcons icon={<GiSpellBook size={60}/>} text="Spells" color="player"/>
-                <BoxIcons icon={<GiShardSword size={60}/>} text="Items" color="player"/>
+                <BoxIcons icon={<GiSpellBook size={60}/>} text="Spells" color="player" path="/spells"/>
+                <BoxIcons icon={<GiShardSword size={60}/>} text="Items" color="player" path="/items"/>
                 <BoxIcons icon={<GiBowman size={60}/>} text="Classes" color="player"/>
                 <BoxIcons icon={<GiWomanElfFace size={60}/>} text="Races" color="player"/>
                 <BoxIcons icon={<GiAbstract008 size={60}/>} text="Feats" color="player"/>

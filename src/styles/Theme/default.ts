@@ -4,5 +4,8 @@ export const defaultTheme = {
     "backgroudPage": "#232323",
     "boxColor": "rgba(0, 0, 0, 0.51)",
     "focusColor": "crimson",
-    "dungeonsMasterColor": "#482382"
+    "dungeonsMasterColor": "#482382",
+    "tableColor": "#bab8b8",
+    "paperColor": "linear-gradient(90deg, #b4ae9f, #807a69)",
+    "peperTitleColor": "#4e130d"
 } as const

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const HeaderContainer = styled.header`
@@ -7,9 +8,10 @@ export const HeaderContainer = styled.header`
     padding: 1.7rem 2.9rem;
     justify-content: space-between;
 `
-export const HeaderLogo = styled.div`
+export const HeaderLogo = styled(Link)`
     display: flex;
     align-items: center;
+    text-decoration: none;
     svg{
         margin-right: 0.75rem;
         color: ${props => props.theme.focusColor};
@@ -22,6 +24,7 @@ export const HeaderLogo = styled.div`
         font-size: 2.5rem;
         font-weight: bold;
         color: ${props => props.theme.textColorDefault};
+        border-bottom: 2px solid ${props => props.theme.dungeonsMasterColor};
     }
 `
 
