@@ -37,7 +37,7 @@ export function SpellDetails({spellId}: SpellDetailsProps){
     const [spellDetails, setSpellDetails] = useState<Spell | null>(null)
 
     async function fetchSpellDetails(id: string){
-        const spellDetails = await fetch(`http://localhost:8080/api/spells/${id}`)
+        const spellDetails = await fetch(`http://localhost:5000/api/spells/${id}`)
         const spellDetailsJson = await spellDetails.json()
         console.log(spellDetailsJson)
         setSpellDetails(spellDetailsJson[0])

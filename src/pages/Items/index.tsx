@@ -17,13 +17,13 @@ export function Items(){
     
 
     async function LoadItem(){
-        const items = await fetch("http://localhost:8080/api/items")
+        const items = await fetch("http://localhost:5000/api/items")
         const itemsJson = await items.json()
         setItemList(itemsJson)
     }
 
     async function handleSearch(searchItem: string){
-        const items = await fetch(`http://localhost:8080/api/items/query?search=${searchItem}`)
+        const items = await fetch(`http://localhost:5000/api/items/query?search=${searchItem}`)
         const itemsJson = await items.json()
         setItemList(itemsJson)
     }

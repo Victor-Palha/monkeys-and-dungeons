@@ -3,6 +3,7 @@ import { Home } from "./pages/Home";
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import { Spells } from "./pages/Spells";
 import { Items } from "./pages/Items";
+import { Classes } from "./pages/Classes";
 
 export function Router(){
     return(
@@ -11,6 +12,7 @@ export function Router(){
                 <Route path="/" element={<Home />} />
                 <Route path="/spells" element={<Spells/>}/>
                 <Route path="/items" element={<Items/>}/>
+                <Route path="/classes" element={<Classes/>}/>
             </Route>
         </Routes>
     )

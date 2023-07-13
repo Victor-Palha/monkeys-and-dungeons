@@ -24,13 +24,13 @@ export function Spells(){
     
 
     async function LoadSpells(){
-        const spells = await fetch("http://localhost:8080/api/spells")
+        const spells = await fetch("http://localhost:5000/api/spells")
         const spellsJson = await spells.json()
         setSpellList(spellsJson)
     }
 
     async function handleSearch(searchSpell: string){
-        const spells = await fetch(`http://localhost:8080/api/spells/query?search=${searchSpell}`)
+        const spells = await fetch(`http://localhost:5000/api/spells/query?search=${searchSpell}`)
         const spellsJson = await spells.json()
         setSpellList(spellsJson)
     }

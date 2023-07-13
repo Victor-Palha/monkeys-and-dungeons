@@ -19,7 +19,7 @@ export function ItemDetails({itemId}: ItemsDetailsProps){
     const [ItemsDetails, setItemsDetails] = useState<Items | null>(null)
 
     async function fetchItemsDetails(id: string){
-        const ItemsDetails = await fetch(`http://localhost:8080/api/items/${id}`)
+        const ItemsDetails = await fetch(`http://localhost:5000/api/items/${id}`)
         const ItemsDetailsJson = await ItemsDetails.json()
         console.log(ItemsDetailsJson)
         setItemsDetails(ItemsDetailsJson[0])
