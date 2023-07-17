@@ -4,6 +4,7 @@ import { DefaultLayout } from "./layouts/DefaultLayout";
 import { Spells } from "./pages/Spells";
 import { Items } from "./pages/Items";
 import { Classes } from "./pages/Classes";
+import { Feats } from "./pages/Feats";
 
 export function Router(){
     return(
@@ -13,6 +14,7 @@ export function Router(){
                 <Route path="/spells" element={<Spells/>}/>
                 <Route path="/items" element={<Items/>}/>
                 <Route path="/classes" element={<Classes/>}/>
+                <Route path="/feats" element={<Feats/>}/>
             </Route>
         </Routes>
     )
