@@ -11,7 +11,7 @@ export function Players(){
                 <BoxIcons icon={<GiShardSword size={60}/>} text="Items" color="player" path="/items"/>
                 <BoxIcons icon={<GiBowman size={60}/>} text="Classes" color="player" path="/classes"/>
                 <BoxIcons icon={<GiAbstract008 size={60}/>} text="Feats" color="player" path="/feats"/>
-                <BoxIcons icon={<GiBlackBook size={60}/>} text="Background" color="player"/>
+                <BoxIcons icon={<GiBlackBook size={60}/>} text="Background" color="player" path="/backgrounds"/>
             </PlayersList>
         </PlayersContainer>
     )
