@@ -1,12 +1,15 @@
 import { styled } from "styled-components";
 
-export const SearchContainer = styled.form`
-    margin-top: -2.5rem;
-    width: 47%;
+interface SearchContainerProps {
+    withComplete?: boolean;
+}
+export const SearchContainer = styled.form<SearchContainerProps>`
+    margin-bottom: 1rem;
+    width: 100%;
     margin-bottom: 2rem;
     display: flex;
     align-items: center;
-    position: absolute;
+
     input[type=text]{
         width: 100%;
         padding: 0.5rem;

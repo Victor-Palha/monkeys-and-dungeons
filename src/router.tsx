@@ -7,6 +7,7 @@ import { Classes } from "./pages/Classes";
 import { Feats } from "./pages/Feats";
 import { Backgrounds } from "./pages/Backgrounds";
 import { Bestiary } from "./pages/Bestiary";
+import { Conditions } from "./pages/Conditions";
 
 export function Router(){
     return(
@@ -19,6 +20,7 @@ export function Router(){
                 <Route path="/feats" element={<Feats/>}/>
                 <Route path="/backgrounds" element={<Backgrounds/>}/>
                 <Route path="/bestiary" element={<Bestiary/>}/>
+                <Route path="/conditions" element={<Conditions/>}/>
             </Route>
         </Routes>
     )

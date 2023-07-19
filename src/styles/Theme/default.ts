@@ -7,5 +7,6 @@ export const defaultTheme = {
     "dungeonsMasterColor": "#482382",
     "tableColor": "#bab8b8",
     "paperColor": "linear-gradient(90deg, #b4ae9f, #807a69)",
-    "peperTitleColor": "#4e130d"
+    "peperTitleColor": "#4e130d",
+    "monsterColorTitle": "#d29a38"
 } as const

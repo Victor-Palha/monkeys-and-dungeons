@@ -1,4 +1,5 @@
 import { Search } from "../../components/Search";
+import { useFetch } from "../../hooks/useFetch";
 import { changeColorBySource } from "../../utils/colorChange";
 import { templateSpellLevelChange } from "../../utils/templateSpellLevelChange";
 import { SpellDetails } from "./SpellDetails";
@@ -21,6 +22,7 @@ interface SpellListInterface{
 export function Spells(){
     const [spellList, setSpellList] = useState<SpellListInterface[]>([])
     const [activeSpell, setActiveSpell] = useState<string | null>(null)
+    // const {data, isLoading} = useFetch("http://localhost:5000/api/spells")
     
 
     async function LoadSpells(){

@@ -5,9 +5,9 @@ export const SpellsContainer = styled.section`
     display: flex;
 `
 export const SpellHeight = styled.div`
-    height: 64.8vh;
+    height: 70vh;
     overflow: auto;
-    width: 60%;
+    width: 80%;
 `
 export const SpellList = styled.table`
     border-collapse: collapse;

@@ -1,32 +1,59 @@
+import { Search } from "../../components/Search";
+import { BestiaryDetails } from "./BestiaryDetails";
 import { BestiaryContainer, BestiaryHeight, BestiaryList, BestiaryListBody, BestiaryListHead, BestiaryListMonsterImage } from "./styles";
-import {useEffect, useState} from "react"
+import {useEffect, useRef, useState} from "react"
 interface Bestiary{
     id: string
     name: string;
-    source: string;
-    type: string | {
-        type: string;
-        tags: string[];
-    };
-    cr: string;
-    image: boolean;
-    ext: string;
+    meta: string;
+    Challenge: string;
+    img_url: string;
 }
 export function Bestiary(){
+    const [search, setSearch] = useState(false)
+    const [activeMonster, setActiveMonster] = useState("")
+    const [page, setPage] = useState(1)
     const [bestiary, setBestiary] = useState<Bestiary[]>([])
+    const monsterRef = useRef<HTMLDivElement>()
 
     async function loadBestiary(){
-        const bestiary = await fetch("http://localhost:5000/api/monsters?page=1")
-        const bestiaryJson = await bestiary.json()
-        setBestiary(bestiaryJson)
+        setSearch(false)
+        const bestiaryData = await fetch("http://localhost:5000/api/monsters?page="+page)
+        const bestiaryJson = await bestiaryData.json()
+
+        setBestiary([...bestiary, ...bestiaryJson])
+    }
+
+    function handlePage(){
+        const atualPage = page
+        setPage(atualPage+1)
+    }
+
+    async function handleSearch(searchMonster: string){
+        setSearch(true)
+        if(searchMonster === ""){
+            loadBestiary()
+            return
+        }
+        const spells = await fetch(`http://localhost:5000/api/monsters/query?search=${searchMonster}`)
+        const spellsJson = await spells.json()
+        setBestiary(spellsJson)
+        setPage(0)
+    }
+
+    function handleActiveMonster(id: string){
+        setActiveMonster(id)
     }
 
     useEffect(()=>{
-        loadBestiary()
-    }, [])
+        if(!search){
+            loadBestiary()
+        }
+    }, [page])
     return (
         <BestiaryContainer>
             <BestiaryHeight>
+                <Search handleSearch={handleSearch} withComplete={true}/>
                 <BestiaryList>
                     <BestiaryListHead>
                         <tr>
@@ -39,27 +66,23 @@ export function Bestiary(){
                     </BestiaryListHead>
                     <BestiaryListBody>
                         {bestiary.map((monster)=>(
-                            <tr key={monster.id}>
+                            <tr key={monster.id}  onClick={()=>handleActiveMonster(monster.id)}>
                                 <BestiaryListMonsterImage>
-                                    {monster.image ? (
-                                        <img src={`http://localhost:5000/bestiary/${monster.source}/${monster.name}${monster.ext}`} alt={monster.name}/>
-                                    ) : (
-                                        <img src={`http://localhost:5000/bestiary/placeholder.png`} alt={monster.name}/>
-                                    )}
+                                    <img src={monster.img_url} alt={monster.name}/>
                                 </BestiaryListMonsterImage>
                                 <td>{monster.name}</td>
-                                {typeof monster.type === "string" ? (
-                                    <td>{monster.type}</td>
-                                ) : (
-                                    <td>{monster.type.type} ({monster.type.tags})</td>
-                                )}
-                                <td>{monster.cr}</td>
-                                <td>{monster.source}</td>
+                                <td>{monster.meta}</td>
+                                <td>{monster.Challenge}</td>
+                                <td>MM</td>
                             </tr>
                         ))}
                     </BestiaryListBody>
                 </BestiaryList>
+                <button onClick={()=>{handlePage()}}>See More</button>
             </BestiaryHeight>
+            
+            <BestiaryDetails id={activeMonster} />
+            
         </BestiaryContainer>
     )
 }

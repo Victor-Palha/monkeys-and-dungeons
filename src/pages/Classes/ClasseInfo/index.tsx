@@ -47,6 +47,8 @@ export function ClasseInfo({classe}: ClasseInfoProps){
         setLoading(false)
     }
 
+
+
     useEffect(()=>{
         loadClasseInfo(classe)
     }, [classe])
@@ -84,6 +86,7 @@ export function ClasseInfo({classe}: ClasseInfoProps){
                                 </ReactMarkdown>
                             </div>
                         ))}
+                        
                     </ClasseAbilitys>
                 </>
             )}
